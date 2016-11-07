@@ -27,6 +27,7 @@ namespace AmpSample.Helpers
     </script>");
             return MvcHtmlString.Create(value2.ToString());
         }
+
         public static MvcHtmlString StyleAmpTemplate(this HtmlHelper htmlHelper)
         {
             return MvcHtmlString.Create(@"
@@ -76,4 +77,5 @@ namespace AmpSample.Helpers
         }
 
     }
+
 }

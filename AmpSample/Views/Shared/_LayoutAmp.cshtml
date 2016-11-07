@@ -14,32 +14,15 @@
     @Html.PageSchema()
     @Html.StyleAmpTemplate()
     @Html.WebKitNoAnimation()
-    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">*@
-    @*TODO: Sectionize this piece of code to include begin tag, end tag and RenderSection  *@
-    @*<style amp-custom>
-        @font-face {
-        font-family: "Bitstream Vera Serif Bold";
-        src: url("https://somedomain.org/VeraSeBd.ttf");
-        }
-
-        body {
-        font-family: "Bitstream Vera Serif Bold", serif;
-        }
-        /* any custom style goes here */
-        body {
-            background-color: white;
-        }
-
-        amp-img {
-            background-color: gray;
-            border: 1px solid black;
-        }
-    </style>*@
-    @*ttp://localhost:8000/released.amp.html#development=1*@
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <style amp-custom>
+        @RenderSection("ampcustomstyle", false)
+        </style>
 </head>
 <body>
     <h1>Welcome to the mobile web</h1>
     @RenderBody()
+    @*http://localhost:8000/released.amp.html#development=1*@
     @*
     <amp-img media="(min-width: 650px)"
              src="wide.jpg"

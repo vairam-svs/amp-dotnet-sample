@@ -3,6 +3,25 @@
     ViewBag.Title = "IndexAmp";
     Layout = "~/Views/Shared/_LayoutAmp.cshtml";
 }
-<amp-img src="@Url.Content("~/Content/images/slide1.jpg")" alt="Welcome" height="200" width="800" layout="responsive"></amp-img>
+@section ampcustomstyle {
+    @@font-face {
+        font-family: "Bitstream Vera Serif Bold";
+        src: url("https://somedomain.org/VeraSeBd.ttf");
+    }
+
+    body {
+        font-family: "Bitstream Vera Serif Bold", serif;
+    }
+    /* any custom style goes here */
+    body {
+        background-color: white;
+    }
+
+    amp-img {
+        background-color: gray;
+    border: 1px solid black;
+    }
+}
+<amp-img src="@Url.Content("~/Content/images/slide1.jpg")" alt="Welcome" height="300" width="800" layout="responsive"></amp-img>
 <h2>IndexAmp</h2>
 
