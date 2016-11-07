@@ -14,5 +14,11 @@ namespace AmpSample.Controllers
 
             return View();
         }
+
+        public ActionResult IndexAmp()
+        {
+            ViewBag.Title = "Home Page Amped";
+            return View();
+        }
     }
 }

@@ -1,0 +1,218 @@
+﻿@using AmpSample.Helpers
+
+<!doctype html>
+<html amp lang="en">
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+    <script async custom-element="amp-audio" src="https://cdn.ampproject.org/v0/amp-audio-0.1.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="http://example.ampproject.org/article-metadata.html" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    @*TODO: move this to an HTML Helper  *@
+    @Html.PageSchema()
+    @Html.StyleAmpTemplate()
+    @Html.WebKitNoAnimation()
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">*@
+    @*TODO: Sectionize this piece of code to include begin tag, end tag and RenderSection  *@
+    @*<style amp-custom>
+        @font-face {
+        font-family: "Bitstream Vera Serif Bold";
+        src: url("https://somedomain.org/VeraSeBd.ttf");
+        }
+
+        body {
+        font-family: "Bitstream Vera Serif Bold", serif;
+        }
+        /* any custom style goes here */
+        body {
+            background-color: white;
+        }
+
+        amp-img {
+            background-color: gray;
+            border: 1px solid black;
+        }
+    </style>*@
+    @*ttp://localhost:8000/released.amp.html#development=1*@
+</head>
+<body>
+    <h1>Welcome to the mobile web</h1>
+    @RenderBody()
+    @*
+    <amp-img media="(min-width: 650px)"
+             src="wide.jpg"
+             width=466
+             height=355
+             layout="responsive">
+    </amp-img>
+    <amp-img media="(max-width: 649px)"
+             src="slide1narrow.jpg"
+             width=527
+             height=193
+             layout="responsive">
+    </amp-img>
+
+    <amp-img src="wide.jpg"
+             srcset="wide.jpg 640w,
+           narrow.jpg 320w">
+    </amp-img>
+    <amp-img src="wide.jpg"
+             srcset="wide.jpg 640w,
+           narrow.jpg 320w"
+             sizes="(min-width: 650px) 50vw, 100vw">
+    </amp-img>
+    <amp-img src="https://acme.org/image1.png"
+             width="320" height="256"
+             heights="(min-width:500px) 200px, 80%">
+    </amp-img>
+    <amp-jwplayer data-player-id="aBcD1234"
+                  data-media-id="5678WxYz"
+                  layout="responsive"
+                  width="16" height="9">
+    </amp-jwplayer>
+
+    <amp-anim src="animated.gif" width=466 height=355 layout="responsive">
+        <amp-img placeholder src="preview.png" layout="fill"></amp-img>
+    </amp-anim>
+    <amp-video width=400 height=300 src="https://yourhost.com/videos/myvideo.mp4"
+               poster="myvideo-poster.jpg">
+        <div fallback>
+            <p>Your browser doesn’t support HTML5 video.</p>
+        </div>
+    </amp-video>
+        https://dev.twitter.com/cards/overview
+    http://ogp.me/
+    https://github.com/ampproject/amphtml/blob/master/extensions/amp-form/amp-form.md
+    https://github.com/ampproject/amphtml/blob/master/spec/amp-html-format.md#extended-templates
+    https://github.com/ampproject/amphtml/blob/master/spec/amp-html-templates.md
+    https://github.com/ampproject/amphtml/blob/master/spec/amp-cors-requests.md
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+    https://github.com/ampproject/amphtml/blob/master/spec/amp-html-templates.md#templates
+    <template type="amp-mustache" id="template1">
+        Hello {{you}}!
+    </template>
+
+    SVG
+
+    Currently, the following SVG elements are allowed:
+
+    basics: "svg", "g", "path", "glyph", "glyphRef", "marker", "view"
+    shapes: "circle", "line", "polygon", "polyline", "rect"
+    text: "text", "textPath", "tref", "tspan"
+    rendering: "clipPath", "filter", "linearGradient", "radialGradient", "mask", "pattern", "vkern", "hkern"
+    special: "defs" (all children above are allowed here), "symbol", "use"
+    ARIA: "desc", "title"
+
+    As well as these attributes:
+
+    "xlink:href": only URIs starting with "#" are allowed
+    "style"
+    https://github.com/ampproject/amphtml/blob/master/spec/amp-html-templates.md
+    All AMP template implementations must go through AMP security review before they can be submitted to AMP repository.
+
+    https://ampbyexample.com/
+    https://ampbyexample.com/samples_templates/product/
+    https://ampbyexample.com/samples_templates/product_listing/preview/
+    https://ampbyexample.com/samples_templates/product_listing/
+
+    https://schema.org/Product
+    http://schema.org/docs/full.html
+    https://github.com/AlexZeitler/angular2-pwa-serviceworker-basta2016
+    https://www.youtube.com/watch?v=TCj_oC3m6_U&list=PLOETEcp3DkCq788xapkP_OU-78jhTf68j&index=5
+    https://plnkr.co/edit/Zkkk19Q8c3etazQBg9rc?p=preview
+    https://github.com/AngularClass
+    https://github.com/angular/angular
+    https://www.devintersectioneurope.com/#!/Visual-Studio-ASP-Azure-Conference/sessions
+    https://dev.twitter.com/cards/overview
+    http://ogp.me/
+    https://schema.org/CreativeWork
+    https://schema.org/NewsArticle
+    https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/webfont-optimization
+    https://github.com/ampproject/amphtml/blob/master/spec/amp-html-format.md
+    https://github.com/ampproject/amphtml
+    https://amphtml.wordpress.com/2016/10/31/forms-now-supported-in-amp/amp/
+    https://amphtml.wordpress.com/2016/10/26/do-more-with-ads-on-amp/amp/
+    https://www.ampproject.org/case-studies/relay_media/
+    https://stackoverflow.com/questions/tagged/amp-html?page=2&sort=newest&pagesize=15
+    https://stackoverflow.com/questions/40411602/how-to-control-amp-live-list-caching
+    https://stackoverflow.com/questions/40401729/amp-analytics-passing-useragent-is-truncated-due-to-getnameargs-method
+    https://stackoverflow.com/questions/40390653/amp-form-session-based-backend-and-3rd-party-cookies
+    https://stackoverflow.com/questions/40336631/can-we-implement-amp-in-an-angular-app
+    https://stackoverflow.com/questions/40336631/can-we-implement-amp-in-an-angular-app
+    https://stackoverflow.com/questions/40315196/which-amp-extensions-can-fetch-a-response-from-an-endpoint
+    https://stackoverflow.com/questions/40257537/is-it-possible-to-create-custom-amp-tags
+    https://github.com/ampproject/amphtml/issues/
+    https://www.ampproject.org/roadmap/
+    https://docs.google.com/document/d/1rvcFY3Zhg6oUmRtaceEdOYuwjciVaHnYIn_tMvGbRME/edit
+    https://github.com/ampproject/amphtml/issues/3742
+    <h2>EXPERIMENT</h2>https://cdn.ampproject.org/experiments.html
+    <h2>Product Schema.Org</h2>
+    <p>        name
+        description
+        non-cached image path
+        ratings
+        price
+        stock status
+</p>
+    https://www.bigcommerce.com/ecommerce-answers/what-schema-markup/
+    http://schema.org/docs/schemas.html
+    https://www.ampproject.org/docs/guides/iframes
+    https://www.ampproject.org/docs/guides/responsive/style_pages
+
+
+    Using CSS preprocessors
+
+    The generated output of preprocessors works just as well in AMP as any other web page. For example, the ampproject.org site uses Sass. (We use Grow to build the static AMP pages that make up the ampproject.org site.)
+
+    https://github.com/ampproject/amphtml/blob/master/tools/experiments/experiments.js
+
+
+    https://ampbyexample.com/samples_templates/recipe/
+    https://ampbyexample.com/samples_templates/recipe/preview/*@
+
+</body>
+</html>
+
+@*<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>*@
