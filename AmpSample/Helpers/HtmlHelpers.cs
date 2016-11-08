@@ -4,9 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace AmpSample.Helpers
 {
+    public class NewsArticleSchema
+    {
+        public string context { get; set; }
+        public string type { get; set; }
+        public string headline { get; set; }
+        public string datePublished { get; set; }
+        public string[] image { get; set; }
+    }
     public static class HtmlHelpers
     {
         public static MvcHtmlString PageSchema(this HtmlHelper htmlHelper)
@@ -28,6 +37,32 @@ namespace AmpSample.Helpers
             return MvcHtmlString.Create(value2.ToString());
         }
 
+        
+        public static MvcHtmlString NewsArticleSchemaBuilder(this HtmlHelper htmlHelper,
+                            string headline = "Open-source framework for publishing content", 
+                            string datePublished = "2015-10-07T12:02:41Z",
+                            params string[] imageList)
+        {
+            
+            if (imageList.Length == 0)
+                imageList = new string[] { "slide1-narrow.jpg" };
+            NewsArticleSchema schema = new NewsArticleSchema
+            {
+                context = "http://schema.org/article",
+                type = "NewsArticle",
+                headline = headline,
+                datePublished = datePublished,
+                image = imageList
+            };
+
+            string serialized = JsonConvert.SerializeObject(schema);
+            ///TODO: to convert this into a JSON Converter of param list.
+            StringBuilder value2 = new StringBuilder();
+            value2.Append(@"<script type=""application/ld+json"">");
+            value2.Append(serialized);
+            value2.Append(@"</script>");
+            return MvcHtmlString.Create(value2.ToString());
+        }
         public static MvcHtmlString StyleAmpTemplate(this HtmlHelper htmlHelper)
         {
             return MvcHtmlString.Create(@"
